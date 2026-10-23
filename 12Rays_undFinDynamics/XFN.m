@@ -1,0 +1,33 @@
+function B = XFN(nX,XVec,timeVec,nT,D,hmax)
+global N  Phi f A
+for (indX = 1:nX)
+    
+    X = XVec(indX);
+    
+    for (indT = 1:nT)
+    t = timeVec(indT);
+    
+    
+    for i = 1:N
+   
+        q_curr(i) = A*sin(2*pi*f*t - (i-1)*Phi)+X;
+        %send current desired position (q(indT,i) for motor i
+        
+        dq_curr(i) = 2*A*f*pi*cos(Phi*(i - 1) - 2*pi*f*t);
+    end
+ FN=hydrodynamicforces_Func(D,hmax,q_curr(1:2),dq_curr(1:2))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(2:3),dq_curr(2:3))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(3:4),dq_curr(3:4))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(4:5),dq_curr(4:5))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(5:6),dq_curr(5:6))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(6:7),dq_curr(6:7))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(7:8),dq_curr(7:8))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(8:9),dq_curr(8:9))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(9:10),dq_curr(9:10))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(10:11),dq_curr(10:11))...
+     +hydrodynamicforces_Func(D,hmax,q_curr(11:12),dq_curr(11:12));
+ %FN_Ph=abs(FN_Ph);
+    F_N(indT, :)=FN;
+end
+B(indX,:)=max(F_N);
+end

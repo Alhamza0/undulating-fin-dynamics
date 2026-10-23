@@ -1,0 +1,4 @@
+th1 q1(t) "link 1 rotation"
+th2 q1(t) "link 2 rotation"
+th3 q1(t) "link 3 rotation"
+un_soild fsip1.u_solid*(nX)+fsip1.v_solid*(nY)+fsip1.w_solid*(nZ) ""

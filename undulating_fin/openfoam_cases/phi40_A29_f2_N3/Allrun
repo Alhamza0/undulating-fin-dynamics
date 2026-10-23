@@ -1,0 +1,26 @@
+#!/bin/bash
+# Allrun script for undulating fin OpenFOAM case
+cd "${0%/*}" || exit
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions
+
+echo "=== Undulating Fin OpenFOAM Simulation ==="
+
+# 1. Mesh generation
+runApplication blockMesh
+
+# 2. Optional: add fin geometry via snappyHexMesh
+# runApplication snappyHexMesh -overwrite
+
+# 3. Initialize fields
+runApplication setFields 2>/dev/null || true
+
+# 4. Check mesh quality
+runApplication checkMesh
+
+# 5. Run solver
+runApplication pimpleDyMFoam
+
+# 6. Post-process: extract forces
+runApplication postProcess -func forces
+
+echo "=== Simulation Complete ==="

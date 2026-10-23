@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "undulating-fin"
+version = "0.1.0"
+description = "Kinematic and Dynamic Modeling of Biomimetic Undulating Fins for Underwater Robots"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Alhamzah Ihsan Ali"},
+]
+keywords = ["biomimetics", "underwater-robots", "undulating-fin", "hydrodynamics", "CFD"]
+
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "streamlit>=1.30",
+    "pandas>=2.0",
+    "openpyxl>=3.1",   # reading the COMSOL CFD reference spreadsheets
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,10 @@
+H "14 [cm]" "mebrane length"
+L "16 [cm]" "link length"
+D "12 [cm]" "length between two joints"
+hmin "0 [cm]" "min mounting distance of mebrane"
+hmax H+hmin "max mounting distance of mebrane"
+A "30 [degree]" ampluitude
+f "1 [Hz]" frequency
+phi 40[degree] "phase shift"
+U "0 [degree]" "angular ofset"
+N 3 "number of fin rays"

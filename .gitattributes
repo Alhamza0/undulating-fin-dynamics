@@ -1,0 +1,18 @@
+# Normalise line endings so Windows edits do not churn the diff.
+* text=auto
+
+# OpenFOAM dictionaries and shell scripts must stay LF — they are run
+# inside WSL, and CRLF breaks the shebang and dictionary parsing.
+*.sh          text eol=lf
+Allrun        text eol=lf
+Allclean      text eol=lf
+*.stl         text eol=lf
+*.verified    text eol=lf
+openfoam_cases/** text eol=lf
+
+# Binary
+*.pdf   binary
+*.png   binary
+*.xlsx  binary
+*.docx  binary
+*.mat   binary

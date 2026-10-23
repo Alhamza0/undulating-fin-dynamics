@@ -1,0 +1,42 @@
+FoamFile
+{
+    version 2.0;
+    format ascii;
+    class pointVectorField;
+    object pointDisplacement;
+}
+
+dimensions [0 1 0 0 0 0 0]; internalField uniform (0 0 0);
+boundaryField
+{
+    walls { type fixedValue; value uniform (0 0 0); }
+    mover
+    {
+        type            codedFixedValue;
+        value           uniform (0 0 0);
+        name            points0Probe;
+        codeInclude     #{ #include "points0MotionSolver.H" #};
+        codeOptions     #{ -I$(LIB_SRC)/dynamicMesh/lnInclude #};
+        codeLibs        #{ -ldynamicMesh #};
+        code
+        #{
+            const pointPatch& pp = this->patch();
+            const polyMesh& m = pp.boundaryMesh().mesh()();
+            const points0MotionSolver& ms =
+                m.lookupObject<points0MotionSolver>("dynamicMeshDict");
+            const pointField& p0 = ms.points0();
+            const labelList& mp = pp.meshPoints();
+            const scalar t = this->db().time().value();
+            vectorField d(mp.size(), Zero);
+            forAll(mp, i)
+            {
+                const point& P = p0[mp[i]];
+                d[i] = vector(0.05*P.y()*sin(100.0*t), 0, 0);
+            }
+            Info<< "points0 OK: size=" << p0.size()
+                << " patchPts=" << mp.size()
+                << " maxDisp=" << max(mag(d)) << endl;
+            operator==(d);
+        #};
+    }
+}

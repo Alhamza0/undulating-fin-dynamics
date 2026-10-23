@@ -1,0 +1,16 @@
+H "17.5 [cm]" "mebrane length"
+L "20 [cm]" "link length"
+D "14.6 [cm]" "length between two joints"
+hmin "0 [cm]" "min mounting distance of mebrane"
+hmax H+hmin "max mounting distance of mebrane"
+A "15 [degree]" ampluitude
+f "1 [Hz]" frequency
+phi 40[degree] "phase shift"
+U "0 [degree]" "angular ofset"
+N 3 "number of fin rays"
+ncycle 2 "Number of loading cycles"
+tmax ncycle/f "Total loading time"
+tstep 0.1/f "Sampling time interval"
+mth 3[mm] ""
+Lth 3[mm] "link thikness"
+Lw 0.6 "link width"

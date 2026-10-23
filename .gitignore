@@ -1,0 +1,70 @@
+# ══════════════════════════════════════════════════════════════
+#  Undulating Fin Thesis Project — .gitignore
+#  Rule of thumb: track SOURCE and RESULTS, never simulation binaries.
+# ══════════════════════════════════════════════════════════════
+
+# ── Python environment ────────────────────────────────────────
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ── COMSOL model binaries (~6.3 GB — keep locally, never in git) ─
+*.mph
+*.mphbin
+12-Comsol/Fin/
+# Keep the small COMSOL text artefacts:
+!12-Comsol/*.txt
+!12-Comsol/COMSOL_README.md
+
+# ── Large media / archives ────────────────────────────────────
+*.avi
+*.mp4
+*.zip
+# ._* = macOS AppleDouble resource forks (junk)
+._*
+.DS_Store
+Thumbs.db
+
+# ── MATLAB scratch ────────────────────────────────────────────
+*.asv
+*.mat
+slprj/
+
+# ── LaTeX build artefacts ─────────────────────────────────────
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+# generate_diagrams.py writes its figures here; they are build output
+undulating_fin/paper/
+
+# ── OpenFOAM run output (cases themselves ARE tracked) ────────
+undulating_fin/openfoam_cases/*/[0-9]*/
+undulating_fin/openfoam_cases/*/processor*/
+undulating_fin/openfoam_cases/*/postProcessing/
+undulating_fin/openfoam_cases/*/constant/polyMesh/
+undulating_fin/openfoam_cases/*/log.*
+# but keep the initial-conditions "0" directory:
+!undulating_fin/openfoam_cases/*/0/
+
+# ── Editor / OS ───────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ── Third-party COMSOL documentation (not ours to redistribute) ─
+12-Comsol/models.*.pdf

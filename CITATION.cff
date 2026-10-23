@@ -1,0 +1,53 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the M.Sc. thesis below, and the related IET book chapter."
+title: "Undulating Fin Dynamics: analytical and CFD-validated hydrodynamic models of bio-inspired undulating fins"
+type: software
+license: MIT
+repository-code: "https://github.com/Alhamza0/undulating-fin-dynamics"
+authors:
+  - family-names: Ali
+    given-names: Alhamzah Ihsan
+    orcid: "https://orcid.org/0000-0001-5211-5588"
+keywords:
+  - robotics
+  - bio-inspired
+  - hydrodynamics
+  - cfd
+  - openfoam
+  - undulating fin
+preferred-citation:
+  type: thesis
+  thesis-type: "M.Sc. thesis"
+  title: "Kinematic and Dynamic Modeling of Biomimetic Undulating Fins for Underwater Robots"
+  authors:
+    - family-names: Ali
+      given-names: Alhamzah Ihsan
+      orcid: "https://orcid.org/0000-0001-5211-5588"
+  institution:
+    name: "Bahçeşehir University"
+    city: Istanbul
+    country: TR
+  department: "Mechatronics Engineering"
+  year: 2021
+  notes: "Supervisor: Assoc. Prof. Dr. Berke Gür"
+references:
+  - type: book
+    title: "Propelling URSULA: bioinspired fins for robotic squids"
+    collection-title: "Maritime Autonomous Vehicles"
+    collection-type: book
+    authors:
+      - family-names: Gür
+        given-names: Berke
+      - family-names: Ali
+        given-names: Alhamzah Ihsan
+        orcid: "https://orcid.org/0000-0001-5211-5588"
+      - family-names: Akbulut
+        given-names: Batuhan
+    publisher:
+      name: "The Institution of Engineering and Technology (IET)"
+    year: 2025
+    section: "5"
+    start: 105
+    end: 126
+    isbn: "9781839539183"
+    doi: "10.1049/SBRA565E_ch5"
